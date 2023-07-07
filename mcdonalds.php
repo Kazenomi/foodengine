@@ -1,7 +1,8 @@
 <?php
-require_once('component.php')
+require_once('CreateDB.php');
+require_once('component.php');
 
-
+$database = new CreateDB(dbname: "FOODSQL", tablename: "Producttb");
     ?>
 
 <!DOCTYPE html>
@@ -135,19 +136,17 @@ require_once('component.php')
         <div class="box-condiment">
             <!-- product card starts here -->
             <?php
-            component("Barbeque Sauce", 0.94, "image/barbequesauce.png ");
-            component("Sweet & Sour Sauce", 0.94, "image/sweet&soursauce.png ");
-            component("McChicken Sauce", 0.94, "./image/mcchickensauce.png ");
-            component("Sambal", 0.94, "image/sambal.png");
+            $result = $database->getData();
+            while($row = mysqli_fetch_assoc($result)){
+              component($row['product_name'], $row['product_price'], $row['product_image']);
+            }
             ?>
 
         </div>
     </section>
     <!-- Condiments section ends -->
 =======
-<!-- Condiments section start -->
 
-<!-- Condiments section ends -->
 >>>>>>> d82545c2b3549b0c645590c859f866ffe1246093
 
 
@@ -162,17 +161,10 @@ require_once('component.php')
         <div class="box-drink">
             <!-- product card starts here -->
             <?php
-            component(productname: "Hot Milo", productprice: 5.66, productimg: "./image/hotmilo.png ");
-            component(productname: "Hot Tea", productprice: 5.47, productimg: "./image/hottea.png ");
-            component(productname: "Hot Teh Tarik", productprice: 5.47, productimg: "./image/hottehtarik.png ");
-            component(productname: "Milo", productprice: 7.83, productimg: "./image/milo.png");
-            component(productname: "Lychee Berry McFizz", productprice: 6.51, productimg: "./image/lycheeberrymcfizz.png");
-            component(productname: "Coca-cola", productprice: 5.47, productimg: "./image/cocacola.png");
-            component(productname: "100 Plus", productprice: 5.47, productimg: "./image/100plus.png");
-            component(productname: "Sprite", productprice: 5.47, productimg: "./image/sprite.png");
-            component(productname: "Iced Lemon Tea", productprice: 6.89, productimg: "./image/icedlemontea.png");
-            component(productname: "Jus Oren Minute Maid", productprice: 7.83, productimg: "./image/jusorenminutemaid.png");
-            component(productname: "Drinking Water", productprice: 4.72, productimg: "./image/drinkingwater.png");
+            $result = $database->getData();
+            while($row = mysqli_fetch_assoc($result)){
+              component($row['product_name'], $row['product_price'], $row['product_image']);
+            }
             ?>
 
         </div>
@@ -188,15 +180,10 @@ require_once('component.php')
         <div class="box-desert">
 
             <?php
-            component(productname: "White Chocolate & Strawberry Pie", productprice: 5.33, productimg: "./image/whitechocolate&strawberrypie.png ");
-            component(productname: "Mango McFlurry", productprice: 8.73, productimg: "./image/mangomcflurry.png");
-            component(productname: "Sea Salt McFlurry", productprice: 8.96, productimg: "./image/seasaltmcflurry.png");
-            component(productname: "OREO McFlurry", productprice: 7.78, productimg: "./image/oreomcflurry.png");
-            component(productname: "Chocolate Sundae", productprice: 5.90, productimg: "./image/chocolatesundae.png");
-            component(productname: "Strawberry Sundae", productprice: 5.90, productimg: "./image/strawberrysundae.png");
-            component(productname: "Apple Pie", productprice: 4.95, productimg: "./image/applepie.png");
-            component(productname: "French Fries", productprice: 6.32, productimg: "/image/frenchfries.png");
-            component(productname: "Corn", productprice: 5.83, productimg: "./image/corn.png");
+      $result = $database->getData();
+      while($row = mysqli_fetch_assoc($result)){
+        component($row['product_name'], $row['product_price'], $row['product_image']);
+      }
             ?>
 
         </div>
@@ -212,15 +199,13 @@ require_once('component.php')
         <div class="box-mccake">
 
             <?php
-            component(productname: "Chocolate Marble Cake", productprice: 8.40, productimg: "./image/chocolatemarblecake.png ");
-            component(productname: "Butter Cake", productprice: 8.43, productimg: "./image/buttercake.png");
-            component(productname: "Pandan Gula Melaka Cake", productprice: 13.11, productimg: "./image/pandangulamelakacake.png");
-            component(productname: "Apple Crumble Cheesecake", productprice: 13.11, productimg: "./image/applecrumblecheesecake.png");
-            component(productname: "Belgium Chocolate Cake", productprice: 12.11, productimg: "./image/belgiumchocolatecake.png");
-            component(productname: "Red Velvet Cake", productprice: 13.11, productimg: "./image/redvelvetcake.png");
-            component(productname: "Classic Cake", productprice: 13.11, productimg: "./image/classiccheesecake.png");
-
+             $result = $database->getData();
+             while($row = mysqli_fetch_assoc($result)){
+               component($row['product_name'], $row['product_price'], $row['product_image']);
+             }
             ?>
+
+            
 
         </div>
     </section>
@@ -234,27 +219,10 @@ require_once('component.php')
         <div class="box-mcdrink">
         
             <?php
-            component(productname: "Iced Apple Pear", productprice: 5.19, productimg: "./image/icedapplepear.png");
-            component(productname: "Iced Blended Chocolate With OREO", productprice: 15.00, productimg: "./image/iceblendedchocolatewithoreo.png");
-            component(productname: "Iced Blended Mocha With OREO", productprice: 15.00, productimg: "./image/iceblendedmochawithoreo.png");
-            component(productname: "Iced Blended Strawberry With OREO", productprice: 15.00, productimg: "./image/iceblendedstrawberrywithoreo.png");
-            component(productname: "Kopi Susu", productprice: 8.40, productimg: "./image/kopisusu.png");
-            component(productname: "Iced Kopi Susu", productprice: 9.34, productimg: "./image/icedkopisusu.png");
-            component(productname: "Ice Blended Kopi Susu", productprice: 13.49, productimg: "./image/iceblendedkopisusu.png");
-            component(productname: "Latte", productprice: 8.96, productimg: "./image/latte.png");
-            component(productname: "Iced Latte", productprice: 9.91, productimg: "./image/icedlatte.png");
-            component(productname: "Ice Blended Latte", productprice: 14.06, productimg: "./image/iceblendedlatte.png");
-            component(productname: "Cappucino", productprice: 8.96, productimg: "./image/cappucino.png");
-            component(productname: "Americano", productprice: 7.07, productimg: "./image/americano.png");
-            component(productname: "Iced Americano", productprice: 8.02, productimg: "./image/icedamericano.png");
-            component(productname: "Iced Chocolate", productprice: 10.85, productimg: "./image/icedchocolate.png");
-            component(productname: "Iced Blended Chocolate", productprice: 14.06, productimg: "./image/iceblendedchocolate.png");
-            component(productname: "Ice Blended Milo", productprice: 14.06, productimg: "./image/iceblendedmilo.png");
-            component(productname: "Iced Chocolate", productprice: 10.85, productimg: "./image/iceblendedmilo.png");
-            component(productname: "Iced Chocolate", productprice: 10.85, productimg: "./image/icedchocolate.png");
-            component(productname: "Iced Chocolate", productprice: 10.85, productimg: "./image/icedchocolate.png");
-            component(productname: "Iced Chocolate", productprice: 10.85, productimg: "./image/icedchocolate.png");
-
+        $result = $database->getData();
+        while($row = mysqli_fetch_assoc($result)){
+          component($row['product_name'], $row['product_price'], $row['product_image']);
+        }
             ?>
         </div>
     </section>
@@ -272,10 +240,10 @@ require_once('component.php')
         <div class="box-happymeal">
           
             <?php
-            component(productname: "Happy Meals", productprice: 11.13, productimg: "./image/sausagemcmuffin.png");
-            component(productname: "2pcs HotCakes", productprice: 11.13, productimg: "./image/2pcshotcakes.png");
-            component(productname: "Bubur Ayam McD", productprice: 11.13, productimg: "./image/buburayammcd.png");
-            component(productname: "Minions Carrier", productprice: 30.00, productimg: "./image/minionscarrier.png");
+             $result = $database->getData();
+             while($row = mysqli_fetch_assoc($result)){
+               component($row['product_name'], $row['product_price'], $row['product_image']);
+             }
      
             ?>
         </div>
@@ -294,11 +262,10 @@ require_once('component.php')
         <div class="box-familymeal">
           
             <?php
-            component(productname: "Family Meals", productprice: 40.57, productimg: "./image/familyseta.png");
-            component(productname: "Family Meals B", productprice: 51.89, productimg: "./image/familymealb.png");
-            component(productname: "Ayam Goreng McD 5pcs", productprice: 32.08, productimg: "./image/ayamgorengmcd5pcs.png");
-            component(productname: "Ayam Goreng McD 10pcs", productprice: 59.43, productimg: "./image/ayamgorengmcd10pcs.png");
-     
+             $result = $database->getData();
+             while($row = mysqli_fetch_assoc($result)){
+               component($row['product_name'], $row['product_price'], $row['product_image']);
+             }
             ?>
         </div>
         
@@ -317,11 +284,10 @@ require_once('component.php')
         <div class="box-rice">
          
             <?php
-            component(productname: "Nasi Lemak With 2pcs Creamy Butter Chicken", productprice: 20.28, productimg: "./image/nasilemakwith2pcscreamybutter.png");
-            component(productname: "Nasi Lemak With 1pcs Creamy Butter Chicken", productprice: 16.51, productimg: "./image/nasilemakwith1pcscreamybutter.png");
-            component(productname: "Nasi Lemak McD With Ayam Goreng Spicy 1pcs", productprice: 13.77, productimg: "./image/nasilemakmcdagspicy1pcs.png");
-            component(productname: "Nasi Lemak McD With Ayam Goreng Regular 1pcs", productprice: 13.77, productimg: "./image/nasilemakmcdagregular1pcs.png");
-     
+             $result = $database->getData();
+             while($row = mysqli_fetch_assoc($result)){
+               component($row['product_name'], $row['product_price'], $row['product_image']);
+             }  
             ?>
         </div>
     </section>
@@ -339,11 +305,10 @@ require_once('component.php')
         <div class="box-mcnugget">
           
             <?php
-            component(productname: "6pcs Chicken McNuggets", productprice: 10.42, productimg: "./image/6pcschickenmcnuggets.png");
-            component(productname: "9pcs Chicken McNuggets", productprice: 13.82, productimg: "./image/9pcschickenmcnuggets.png");
-            component(productname: "20pcs Chicken McNuggets", productprice: 26.70, productimg: "./image/20pcschickenmcnuggets.png");
-            component(productname: "Share-share Bundle", productprice: 34.43, productimg: "./image/share-sharebundle.png");
-     
+             $result = $database->getData();
+             while($row = mysqli_fetch_assoc($result)){
+               component($row['product_name'], $row['product_price'], $row['product_image']);
+             }
             ?>
         </div>
     </section>
@@ -361,10 +326,10 @@ require_once('component.php')
         <div class="box-ayamgoreng">
          
             <?php
-            component(productname: "Ayam Goreng McD Spicy 1pcs", productprice: 8.40, productimg: "./image/ayamgorengspicy1pcs.png");
-            component(productname: "Ayam Goreng McD Regular 1pcs", productprice: 8.40, productimg: "./image/ayamgorengregular1pcs.png");
-            component(productname: "Ayam Goreng McD Spicy 2pcs", productprice: 14.39, productimg: "./image/ayamgorengspicy2pcs.png");
-            component(productname: "Ayam Goreng McD Regular 2pcs", productprice: 14.39, productimg: "./image/ayamgorengregular2pcs.png");
+       $result = $database->getData();
+       while($row = mysqli_fetch_assoc($result)){
+         component($row['product_name'], $row['product_price'], $row['product_image']);
+       }
      
             ?>
         </div>
@@ -383,11 +348,10 @@ require_once('component.php')
         <div class="box-burger">
          
             <?php
-            component(productname: "Ayam Hawaii", productprice: 15.00, productimg: "./image/ayamhawaii.png");
-            component(productname: "Ayam Hawaii Double", productprice: 20.66, productimg: "./image/ayamhawaiidouble.png");
-            component(productname: "Daging Hawaii", productprice: 15.00, productimg: "./image/daginghawaii.png");
-            component(productname: "Double Cheeseburger", productprice: 11.51, productimg: "./image/doublecheeseburger.png");
-     
+              $result = $database->getData();
+              while($row = mysqli_fetch_assoc($result)){
+                component($row['product_name'], $row['product_price'], $row['product_image']);
+              }
             ?>
         </div>
     </section>
