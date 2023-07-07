@@ -49,6 +49,10 @@
         <label for="productPrice" class="form-label">Product Price</label>
         <input type="number" class="form-control" id="productPrice" name="productPrice" step="0.01" required>
       </div>
+      <div class="mb-3">
+        <label for="productImage" class="form-label">Product Image</label>
+        <input type="file" class="form-control" id="productImage" name="productImage">
+      </div>
       <button type="submit" class="btn btn-primary">Create Product</button>
     </form>
 
@@ -57,6 +61,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Product Image</th>
           <th>Product Name</th>
           <th>Product Price</th>
           <th>Actions</th>
@@ -66,6 +71,7 @@
         <!-- Iterate over products and generate rows -->
         <?php foreach ($products as $product): ?>
           <tr>
+            <td><img src="<?php echo $product['image']; ?>" alt="Product Image" class="img-thumbnail"></td>
             <td><?php echo $product['name']; ?></td>
             <td><?php echo $product['price']; ?></td>
             <td>
